@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/txtTitulo"
@@ -21,7 +21,7 @@
     <EditText
         android:id="@+id/editPrimeiroNome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_margin="16dp"
         android:layout_marginTop="104dp"
         android:ems="10"
@@ -35,7 +35,7 @@
     <EditText
         android:id="@+id/editSegundoNome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_margin="16dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_sobrenome"
@@ -49,7 +49,7 @@
     <EditText
         android:id="@+id/editNomeCurso"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_margin="16dp"
         android:layout_marginTop="92dp"
         android:ems="10"
@@ -63,7 +63,7 @@
     <EditText
         android:id="@+id/editTelefoneContato"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_margin="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
@@ -79,7 +79,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_button_limpar"
-        android:backgroundTint="@color/corBotoes"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
         app:layout_constraintHorizontal_bias="0.072"
@@ -94,7 +93,6 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:text="@string/txt_button_salvar"
-        android:backgroundTint="@color/corBotoes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelefoneContato" />
 
@@ -105,7 +103,6 @@
         android:layout_margin="16dp"
         android:layout_marginTop="348dp"
         android:text="@string/txt_button_finalizar"
-        android:backgroundTint="@color/corBotoes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
