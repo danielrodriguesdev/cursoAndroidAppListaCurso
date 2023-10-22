@@ -37,17 +37,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        preferences = getSharedPreferences(NOME_PREFERENCES,0);
-        SharedPreferences.Editor listaVip = preferences.edit();
-
-        controller = new PessoaController();
-
-        pessoa = new Pessoa();
-        pessoa.setPrimeiroNome("Daniel");
-        pessoa.setSobreNome("Santos");
-        pessoa.setCursoDesejao("Android");
-        pessoa.setTelefoneContato("1234");
-
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSegundoNome = findViewById(R.id.editSegundoNome);
         editNomeCurso = findViewById(R.id.editNomeCurso);
@@ -57,10 +46,24 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
+        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+        SharedPreferences.Editor listaVip = preferences.edit();
+
+        controller = new PessoaController();
+        pessoa = new Pessoa();
+
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome", ""));
+        pessoa.setSobreNome(preferences.getString("sobreNome", ""));
+        pessoa.setCursoDesejao(preferences.getString("nomeCurso", ""));
+        pessoa.setTelefoneContato(preferences.getString("telefoneContato", ""));
+
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
         editSegundoNome.setText(pessoa.getSobreNome());
-        editNomeCurso.setText(pessoa.getCursoDesejao());
         editTelefoneContato.setText(pessoa.getTelefoneContato());
+        editNomeCurso.setText(pessoa.getCursoDesejao());
+
+
+
 
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
