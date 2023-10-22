@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     PessoaController controller;
     SharedPreferences preferences;
+    SharedPreferences.Editor listaVip;
     public static final String NOME_PREFERENCES =  "pref_listavip";
 
     Pessoa pessoa;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
         preferences = getSharedPreferences(NOME_PREFERENCES,0);
-        SharedPreferences.Editor listaVip = preferences.edit();
+        listaVip = preferences.edit();
 
         controller = new PessoaController();
         pessoa = new Pessoa();
@@ -62,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
         editTelefoneContato.setText(pessoa.getTelefoneContato());
         editNomeCurso.setText(pessoa.getCursoDesejao());
 
-
-
-
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 editSegundoNome.setText("");
                 editTelefoneContato.setText("");
                 editNomeCurso.setText("");
+
+                listaVip.clear();
+                listaVip.apply();
             }
         });
 
