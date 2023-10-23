@@ -10,15 +10,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import devandroid.daniel.applistacurso.R;
+import devandroid.daniel.applistacurso.controller.CursoController;
 import devandroid.daniel.applistacurso.controller.PessoaController;
+import devandroid.daniel.applistacurso.model.Curso;
 import devandroid.daniel.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
     PessoaController controller;
+    CursoController cursoController;
 
     Pessoa pessoa;
+    List<Curso> listaDeCursos;
     String dadosPessoa;
 
     EditText editPrimeiroNome;
@@ -44,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
+        cursoController = new CursoController();
+        listaDeCursos = cursoController.getListaDeCursos();
 
         controller = new PessoaController(MainActivity.this);
         pessoa = new Pessoa();
