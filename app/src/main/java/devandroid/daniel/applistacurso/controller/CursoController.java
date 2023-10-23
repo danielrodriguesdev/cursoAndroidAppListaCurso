@@ -1,5 +1,7 @@
 package devandroid.daniel.applistacurso.controller;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
