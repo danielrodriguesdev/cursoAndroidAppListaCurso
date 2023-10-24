@@ -14,8 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.daniel.appgaseta.R;
 import devandroid.daniel.appgaseta.apoio.UtilGasEta;
+import devandroid.daniel.appgaseta.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
+
+    Combustivel combustivel;
+
+    Combustivel combustivelGasolina;
+    Combustivel combustivelEtanol;
+
 
     EditText editGasolina;
     EditText editEtanol;
@@ -90,6 +97,19 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //TODO: Desabilitar o botão salvar.
+                combustivelGasolina = new Combustivel();
+                combustivelEtanol = new Combustivel();
+
+                combustivelGasolina.setNomeDoCombustivel("Gasolina");
+                combustivelGasolina.setPrecoDoCombustivel(precoGasolina);
+                combustivelGasolina.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
+
+                combustivelEtanol.setNomeDoCombustivel("Etanol");
+                combustivelEtanol.setPrecoDoCombustivel(precoEtanol);
+                combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
+
+                int parada = 0;
             }
         });
 
