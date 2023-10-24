@@ -1,4 +1,4 @@
-package devandroid.daniel.applistacurso.view;
+package devandroid.daniel.appgaseta.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,13 +11,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import devandroid.daniel.applistacurso.R;
-import devandroid.daniel.applistacurso.controller.CursoController;
-import devandroid.daniel.applistacurso.controller.PessoaController;
-import devandroid.daniel.applistacurso.model.Pessoa;
+
+import devandroid.daniel.appgaseta.R;
+import devandroid.daniel.appgaseta.controller.CursoController;
+import devandroid.daniel.appgaseta.controller.PessoaController;
+import devandroid.daniel.appgaseta.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 

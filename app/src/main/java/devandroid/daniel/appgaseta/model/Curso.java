@@ -1,4 +1,4 @@
-package devandroid.daniel.applistacurso.model;
+package devandroid.daniel.appgaseta.model;
 
 public class Curso {
 

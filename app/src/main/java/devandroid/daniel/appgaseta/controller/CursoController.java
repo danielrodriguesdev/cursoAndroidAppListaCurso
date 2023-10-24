@@ -1,11 +1,9 @@
-package devandroid.daniel.applistacurso.controller;
-
-import android.util.Log;
+package devandroid.daniel.appgaseta.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import devandroid.daniel.applistacurso.model.Curso;
+import devandroid.daniel.appgaseta.model.Curso;
 
 public class CursoController {
 
