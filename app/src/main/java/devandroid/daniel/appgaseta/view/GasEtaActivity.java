@@ -12,13 +12,17 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import devandroid.daniel.appgaseta.R;
 import devandroid.daniel.appgaseta.apoio.UtilGasEta;
+import devandroid.daniel.appgaseta.controller.CombustivelController;
 import devandroid.daniel.appgaseta.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
 
     Combustivel combustivel;
+    CombustivelController controller;
 
     Combustivel combustivelGasolina;
     Combustivel combustivelEtanol;
@@ -38,10 +42,15 @@ public class GasEtaActivity extends AppCompatActivity {
     double precoEtanol;
     String recomendacao;
 
+    List<Combustivel> dados;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gaseta);
+
+        controller = new CombustivelController(GasEtaActivity.this);
+        dados = controller.getListaDeDados();
 
         editGasolina = findViewById(R.id.editGasolina);
         editEtanol = findViewById(R.id.editEtanol);
@@ -79,8 +88,10 @@ public class GasEtaActivity extends AppCompatActivity {
                     recomendacao = UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol);
 
                     txtResultado.setText(recomendacao);
+                    btnSalvar.setEnabled(true);
                 } else {
                     Toast.makeText(GasEtaActivity.this, "Por favor, digite os dados obrigatórios!", Toast.LENGTH_LONG).show();
+                    btnSalvar.setEnabled(false);
                 }
             }
         });
@@ -90,6 +101,8 @@ public class GasEtaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 editEtanol.setText("");
                 editGasolina.setText("");
+                btnSalvar.setEnabled(false);
+                controller.limpar();
             }
         });
 
@@ -97,7 +110,7 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //TODO: Desabilitar o botão salvar.
+
                 combustivelGasolina = new Combustivel();
                 combustivelEtanol = new Combustivel();
 
@@ -108,6 +121,9 @@ public class GasEtaActivity extends AppCompatActivity {
                 combustivelEtanol.setNomeDoCombustivel("Etanol");
                 combustivelEtanol.setPrecoDoCombustivel(precoEtanol);
                 combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
+
+                controller.salvar(combustivelGasolina);
+                controller.salvar(combustivelEtanol);
 
                 int parada = 0;
             }

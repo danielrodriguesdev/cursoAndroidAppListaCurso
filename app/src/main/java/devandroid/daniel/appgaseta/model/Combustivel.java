@@ -2,6 +2,7 @@ package devandroid.daniel.appgaseta.model;
 
 public class Combustivel {
 
+    private int id;
     private String nomeDoCombustivel;
     private double precoDoCombustivel;
     private String recomendacao;
@@ -28,5 +29,13 @@ public class Combustivel {
 
     public void setRecomendacao(String recomendacao) {
         this.recomendacao = recomendacao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
